@@ -1,0 +1,320 @@
+
+
+{ 
+// ─────────────────────────────────────────────────────────────┤ header ├───
+
+  "position": "top",
+  "exlusive": "true",
+  "passthrough": "true",
+  "gtk-layer-shell": "false",
+  "margin-top": 5,
+  "margin-left": 15,
+  "margin-right": 15,
+  "height": 42,
+  "reload_style_on_change": true,
+// ──────────────────────────────────────────────────────────┤ positions ├───
+
+  "modules-left": [
+
+    "hyprland/workspaces"
+  ],
+
+
+
+
+  "modules-center": [
+    "clock"
+  ],
+
+
+
+
+  "modules-right": [
+    "cpu",
+    "memory",
+    "disk", 
+    "pulseaudio",
+    "network",
+    "custom/notification",
+    "tray",
+    "custom/power"
+  ],
+
+
+// ──────────────────────────────────────────────────────────┤ tray ├───
+
+  "tray": {
+    "icon-size": 16,
+    "icon-theme": "Papirus",
+    "spacing": 8 
+  },
+
+// ──────────────────────────────────────────────────────────┤ power ├───
+
+  "custom/power": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "~/.config/waybar/scripts/power-menu.fish"
+  },
+
+// ─────────────────────────────────────────────────────────────┤ window ├───
+
+  "hyprland/window": {
+    "swap-icon-label": false,
+    "format": "{}",
+    "tooltip": false,
+    "min-length": 5,
+
+    "rewrite": {
+      // ────────────────────────────────────────────────────────── desktop ───
+      "": 
+        "<span foreground='#7aa2f7'> </span> Hyprland",
+
+      // ───────────────────────────────────────────────────────── terminal ───
+
+      "~": "  Terminal",
+      "zsh": "  Terminal",
+      "kitty": "  Terminal",
+
+      "tmux(.*)": 
+        "<span foreground='#a6e3a1'> </span> Tmux",
+
+      // ────────────────────────────────────────────────────────── browser ───
+
+      "(.*)Mozilla Firefox": 
+        "<span foreground='#f7768e'>󰈹 </span> Firefox",
+      "(.*) — Mozilla Firefox": 
+        "<span foreground='#f7768e'>󰈹 </span> $1",
+
+      "(.*)Zen Browser": 
+        "<span foreground='#fab387'>󰺕 </span> Zen Browser",
+      "(.*) — Zen Browser": 
+        "<span foreground='#fab387'>󰺕 </span> $1",
+
+      // ────────────────────────────────────────────────────── development ───
+
+      "(.*) - Visual Studio Code": 
+        "<span foreground='#89b4fa'>󰨞 </span> $1",
+      "(.*)Visual Studio Code": 
+        "<span foreground='#89b4fa'>󰨞 </span> Visual Studio Code",
+
+      "nvim": 
+        "<span foreground='#a6e3a1'> </span> Neovim",
+      "nvim (.*)": 
+        "<span foreground='#a6e3a1'> </span> $1",
+
+      "vim": 
+        "<span foreground='#a6e3a1'> </span> Vim",
+      "vim (.*)": 
+        "<span foreground='#a6e3a1'> </span> $1",
+
+      // ──────────────────────────────────────────────────────────── media ───
+
+      "(.*)Spotify": 
+        "<span foreground='#a6e3a1'> </span> Spotify",
+      "(.*)Spotify Premium": 
+        "<span foreground='#a6e3a1'> </span> Spotify Premium",
+
+      "OBS(.*)": 
+        "<span foreground='#a6adc8'>󰻃 </span> OBS Studio",
+
+      "VLC media player": 
+        "<span foreground='#fab387'>󰕼 </span> VLC Media Player",
+      "(.*) - VLC media player": 
+        "<span foreground='#fab387'>󰕼 </span> $1",
+
+      "(.*) - mpv": 
+        "<span foreground='#cba6f7'> </span> $1",
+
+      "qView": "󰋩  qView",
+
+      "(.*).jpg": "󰋩  $1.jpg",
+      "(.*).png": "󰋩  $1.png",
+      "(.*).svg": "󰋩  $1.svg",
+
+      // ─────────────────────────────────────────────────────────── social ───
+
+      "• Discord(.*)": "Discord$1",
+      "(.*)Discord(.*)": 
+        "<span foreground='#89b4fa'> </span> $1Discord$2",
+
+      "vesktop": 
+        "<span foreground='#89b4fa'> </span> Discord",
+
+      // ──────────────────────────────────────────────────────── documents ───
+
+      "ONLYOFFICE Desktop Editors": 
+        "<span foreground='#f7768e'> </span> OnlyOffice Desktop",
+
+      "(.*).docx": 
+        "<span foreground='#89b4fa'>󰈭 </span> $1.docx",
+      "(.*).xlsx": 
+        "<span foreground='#a6e3a1'>󰈜 </span> $1.xlsx",
+      "(.*).pptx": 
+        "<span foreground='#fab387'>󰈨 </span> $1.pptx",
+      "(.*).pdf": 
+        "<span foreground='#f7768e'> </span> $1.pdf",
+
+      // ─────────────────────────────────────────────────────────── system ───
+      "Authenticate": "  Authenticate"
+    }
+  },
+
+// ──────────────────────────────────────────────────────────┤ workspaces ├───
+  
+ "hyprland/workspaces": {
+        "disable-scroll": true,
+	"show-special": false,
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        "format": "{icon}",
+        "format-icons": {
+            "6": "",
+            "5": "󰊴",
+            "urgent": "",
+            "active": "",
+            "special": "",
+            "default": ""
+        },
+	"persistent-workspaces": {
+		"*": [ 1,2,3,4,5 ]
+	}
+		
+   },
+
+ "hyprland/workspaces#special": {
+        "disable-scroll": true,
+	"show-default": false,
+        "all-outputs": true,
+	"show-special": true,
+        "format": "{icon}",
+        "format-icons": {
+            "special": "󱓟"
+	},
+
+	"persistent-workspaces": {
+		"*": [ "special:scratchpad" ]
+	},
+	"ignore-workspaces": [ "1","2","3","4","5","6","7" ]
+	
+		
+   },
+
+// ──────────────────────────────────────────────────────────┤ clock ├───
+
+    "clock": {
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format": "<span color='#89b4fa'>󰥔 </span><span color='#c0caf5'>{:%H:%M | %a %d/%m/%Y}</span>",
+    "format-alt": "<span color='#89b4fa'> </span>{:%d-%b-%Y}"
+  },
+
+
+// ──────────────────────────────────────────────────────────┤ hw info ├───
+
+"cpu": {
+  "format": "<span>󰍛</span> {usage}%",
+  "interval": 1,
+  "format-alt-click": "click-right",
+  "format-alt": "<span>{icon0}{icon1}{icon2}{icon3}</span> {usage:>2}% <span>󰍛</span>",
+  "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+"on-click": "kitty btop"
+},
+
+"memory": {
+  "interval": 3,
+  "format": "<span></span> {used:0.1f}G"
+},
+
+"disk": {
+  "interval": 3,
+  "path": "/home",
+  "format": "<span></span> {free}",
+  "unit": "GB"
+},
+
+// ──────────────────────────────────────────────────────────┤ audio ├───
+
+"pulseaudio": {
+  "format": "<span>{icon}</span> {volume}%",
+  "format-bluetooth": "<span color='#a6e3a1'>{icon}</span> {volume}%",
+  "tooltip": false,
+  "format-muted": "<span color='#f7768e'>󰝟</span>",
+  "on-click": "pavucontrol",
+  "on-scroll-up": "wpctl set-volume @DEFAULT_SINK@ 10%+",
+  "on-scroll-down": "wpctl set-volume @DEFAULT_SINK@ 10%-",
+  "format-icons": {
+    "default": [
+      " ",
+      " ",
+      " "
+    ]
+  }
+},
+
+
+
+  "pulseaudio#microphone": {
+    "format": "{format_source}",
+    "format-source": "<span color='#f7768e'> </span><span color='#c0caf5'>{volume}%</span>",
+    "format-source-muted": "",
+    "on-click": "wpctl set-mute @DEFAULT_SOURCE@ toggle",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_SOURCE@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_SOURCE@ 5%-"
+  },
+
+  // ─────────────────────────────────────────────────────────┤ media info ├───
+
+   "mpris": {
+    "format": "{player_icon} {title} - {artist}",
+    "format-paused": "{status_icon} {title} - {artist}",
+
+    "player-icons": {
+      "default": "󰝚 ",
+      "spotify": "<span foreground='#a6e3a1'>󰓇 </span>",
+      "firefox": "<span foreground='#f38ba8'>󰗃 </span>"
+    },
+    "status-icons": {
+      "paused": "<span color='#b4befe'>\u200A\u200A󰏤\u2009\u2009</span>"
+    },
+
+    "tooltip-format": "Playing: {title} - {artist}",
+    "tooltip-format-paused": "Paused: {title} - {artist}",
+    "min-length": 5,
+    "max-length": 35
+  },
+// ──────────────────────────────────────────────────────────┤ notification ├───
+
+
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "<span foreground='#f7768e'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "󰂛<span foreground='#f7768e'><sup></sup></span>",
+      "dnd-none": "󰂛",
+      "inhibited-notification": "<span foreground='#f7768e'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "󰂛<span foreground='#f7768e'><sup></sup></span>",
+      "dnd-inhibited-none": "󰂛"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+
+// ──────────────────────────────────────────────────────────┤ network ├───
+
+
+"network": {
+    "interface": "enp8s0",
+    "format": "󰈀",         // what you see when connected
+    "format-disconnected": "<span color='#f7768e'>󰪎</span>", // what you see when disconnected
+    "tooltip": true             // completely hide tooltip so "enp8s0" never shows
+  },
+
+}  
+// ────────────────────────────────────────────────────────┤ left arrows ├───
